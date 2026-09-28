@@ -3,313 +3,56 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Apples Against Apartheid — current and former Apple employees organizing against Apple's complicity in apartheid.">
 <title>Apples Against Apartheid</title>
+<meta name="description" content="Current and former Apple employees organizing against Apple's complicity in apartheid, genocide, and blood-mineral supply chains.">
+<meta property="og:title" content="Apples Against Apartheid">
+<meta property="og:description" content="Current and former Apple employees organizing against Apple's complicity in apartheid, genocide, and blood-mineral supply chains.">
+<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&family=JetBrains+Mono:wght@600;800&display=swap">
-<style>
-:root{
-  --ground:#FBF8F1;
-  --tile:#EFE7D3;
-  --tile-2:#E4D9BF;
-  --ink:#1D1C16;
-  --ink-2:#4A4840;
-  --ink-3:#6E6B60;
-  --teal:#223F47;
-  --slate:#2D4D5C;
-  --red:#DF4322;
-  --red-ink:#C2381A;
-  --peach:#FBEFE4;
-  --line:rgba(29,28,22,.12);
-  --nav:rgba(251,248,241,.78);
-  --dark-tile:#1D1C16;
-  --on-dark:#F4EEDF;
-  --on-dark-2:#B9B2A0;
-  --card:#FFFFFF;
-  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
-  --body:"Bricolage Grotesque",-apple-system,"Helvetica Neue",Arial,sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
-  --r:22px;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    color-scheme:dark;
-    --ground:#100F0C;--tile:#1C1B16;--tile-2:#26241D;--ink:#F4EEDF;--ink-2:#CFC8B6;--ink-3:#9A9484;
-    --teal:#E4D9BF;--line:rgba(244,238,223,.12);--nav:rgba(16,15,12,.72);--dark-tile:#000000;
-    --card:#22211B;--peach:#3A2016;--red-ink:#FF6A48;
-  }
-}
-:root[data-theme="dark"]{
-  color-scheme:dark;
-  --ground:#100F0C;--tile:#1C1B16;--tile-2:#26241D;--ink:#F4EEDF;--ink-2:#CFC8B6;--ink-3:#9A9484;
-  --teal:#E4D9BF;--line:rgba(244,238,223,.12);--nav:rgba(16,15,12,.72);--dark-tile:#000000;
-  --card:#22211B;--peach:#3A2016;--red-ink:#FF6A48;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:64px}
-body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.47;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:6px}
-h1,h2,h3,h4{margin:0;font-family:var(--display);font-weight:700;letter-spacing:-.01em;line-height:1;text-wrap:balance}
-p{margin:0}
-.eyebrow{font-family:var(--mono);font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
-
-/* ---------- global nav ---------- */
-.gnav{position:relative;z-index:30;height:48px;background:var(--nav);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line)}
-.gnav-in{max-width:1024px;margin:0 auto;height:100%;padding-inline:16px;display:flex;align-items:center;justify-content:space-between;gap:8px}
-.mark{display:flex;align-items:center;gap:8px;text-decoration:none;font-family:var(--display);font-weight:900;font-size:20px;letter-spacing:.02em}
-.mark svg{width:18px;height:20px}
-.gnav ul{list-style:none;margin:0;padding:0;display:flex;gap:26px}
-.gnav ul a{font-size:12.5px;text-decoration:none;color:var(--ink-2);transition:color .2s}
-.gnav ul a:hover{color:var(--ink)}
-.gnav .pledge{font-size:12.5px;font-weight:700;text-decoration:none;color:var(--red-ink)}
-.menu-btn{display:none;background:none;border:0;padding:8px;margin-right:-8px;color:var(--ink);cursor:pointer}
-.menu-btn svg{width:18px;height:18px;display:block}
-.drawer{position:absolute;top:48px;left:0;right:0;background:var(--ground);border-bottom:1px solid var(--line);padding:12px 16px 28px;z-index:29}
-.drawer a{display:block;font-family:var(--display);font-size:30px;padding:6px 0;text-decoration:none}
-@media (max-width:860px){.gnav ul,.gnav .pledge{display:none}.menu-btn{display:block}}
-
-/* ---------- ribbon ---------- */
-.ribbon{background:var(--tile);text-align:center;padding:14px 16px;font-size:14px;color:var(--ink-2)}
-.ribbon a{color:var(--red-ink);text-decoration:none;white-space:nowrap}
-.ribbon a:hover{text-decoration:underline}
-
-/* ---------- local sticky nav ---------- */
-.lnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--nav);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line)}
-.lnav-in{max-width:1024px;margin:0 auto;padding-inline:16px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.lnav-title{font-family:var(--display);font-size:21px;font-weight:700;white-space:nowrap}
-.lnav-links{display:flex;align-items:center;gap:22px;overflow-x:auto;scrollbar-width:none}
-.lnav-links::-webkit-scrollbar{display:none}
-.lnav-links a{font-size:12.5px;color:var(--ink-2);text-decoration:none;white-space:nowrap}
-.lnav-links a:hover{color:var(--ink)}
-.lnav-links a.buy{background:var(--red);color:#fff;padding:5px 12px;border-radius:980px;font-weight:700}
-.lnav-links a.buy:hover{background:var(--red-ink);color:#fff}
-@media (max-width:640px){.lnav-title{display:none}.lnav-in{justify-content:flex-start}}
-
-/* ---------- buttons ---------- */
-.ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:22px}
-.btn{display:inline-flex;align-items:center;gap:6px;font-size:17px;font-weight:500;text-decoration:none;padding:11px 22px;border-radius:980px;border:1px solid transparent;cursor:pointer;font-family:var(--body);transition:background .2s,color .2s,border-color .2s}
-.btn.fill{background:var(--red);color:#fff}
-.btn.fill:hover{background:var(--red-ink)}
-.btn.line{border-color:var(--red);color:var(--red-ink);background:transparent}
-.btn.line:hover{background:var(--red);color:#fff}
-.on-dark .btn.line{color:#FF7A5C;border-color:#FF7A5C}
-.on-dark .btn.line:hover{background:#FF7A5C;color:#1D1C16}
-.link{color:var(--red-ink);text-decoration:none;font-size:17px}
-.link:hover{text-decoration:underline}
-.on-dark .link{color:#FF8A6C}
-
-/* ---------- tiles ---------- */
-.stack{display:flex;flex-direction:column;gap:14px;padding:14px 14px 0}
-@media (max-width:420px){.stack{padding-inline:16px}}
-.tile{position:relative;border-radius:var(--r);overflow:hidden;text-align:center;padding:56px 24px 0;background:var(--tile)}
-.tile .copy{max-width:760px;margin:0 auto;position:relative;z-index:2}
-.tile h2{font-size:clamp(46px,7.2vw,84px);font-weight:900;text-transform:uppercase;letter-spacing:-.005em}
-.tile .sub{font-size:clamp(20px,2.4vw,28px);line-height:1.2;margin-top:10px;color:var(--ink-2);font-weight:500;text-wrap:balance}
-.on-dark{background:var(--dark-tile);color:var(--on-dark)}
-.on-dark .sub{color:var(--on-dark-2)}
-.on-slate{background:var(--slate);color:#F4EEDF}
-.on-slate .sub{color:#C9D6D9}
-.on-slate .eyebrow{color:#FF9A7E}
-
-/* hero */
-.hero{padding-top:64px;min-height:640px;display:flex;flex-direction:column}
-.hero h1{font-size:clamp(64px,11vw,136px);font-weight:900;text-transform:uppercase;line-height:.88;margin-top:14px}
-.hero h1 em{font-style:normal;color:var(--red)}
-.stage{position:relative;flex:1;margin-top:28px;display:flex;justify-content:center;align-items:flex-end;min-height:290px}
-.sign{position:relative;width:min(380px,82%);transform-origin:50% 100%;animation:sway 5.5s ease-in-out infinite}
-.sign .board{background:var(--red);color:#fff;border-radius:6px;padding:26px 20px 24px;box-shadow:0 30px 60px -20px rgba(29,28,22,.45);font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.9;font-size:clamp(40px,6vw,58px);position:relative;z-index:1}
-.sign .board small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.2em;font-weight:800;margin-top:14px;opacity:.9}
-.sign .stick{width:18px;height:130px;margin:-6px auto 0;background:linear-gradient(90deg,#B38B5D,#D6B081 50%,#A07A4E)}
-@keyframes sway{0%,100%{transform:rotate(-2.2deg)}50%{transform:rotate(2.2deg)}}
-@media (prefers-reduced-motion:reduce){.sign{animation:none}.marquee-track{animation:none!important}}
-
-/* countdown */
-.count{display:flex;justify-content:center;gap:10px;margin-top:26px;font-variant-numeric:tabular-nums}
-.count div{min-width:78px;background:var(--card);border-radius:14px;padding:10px 8px 8px;border:1px solid var(--line)}
-.count b{display:block;font-family:var(--display);font-size:38px;font-weight:900;line-height:1}
-.count span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;font-weight:800}
-
-/* marquee */
-.marquee{background:var(--red);color:#1D1C16;overflow:hidden;border-radius:var(--r);padding:14px 0}
-.marquee-track{display:flex;gap:44px;width:max-content;animation:scroll 38s linear infinite;font-family:var(--mono);font-weight:800;letter-spacing:.14em;font-size:14px;white-space:nowrap}
-.marquee-track span::after{content:"✦";margin-left:44px;opacity:.6}
-@keyframes scroll{to{transform:translateX(-50%)}}
-
-/* mission */
-.mission{padding-bottom:64px}
-.mission .creed{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.2em;color:#FF7A5C;max-width:640px;margin:0 auto 34px;line-height:1.9}
-.mission h2{text-transform:none;font-weight:900}
-.mission h2 em{font-style:normal;color:#FF7A5C}
-.mission .body{max-width:620px;margin:22px auto 0;font-size:17px;color:var(--on-dark-2);text-align:left;display:grid;gap:14px}
-.mission .body a{color:var(--on-dark)}
-
-/* why */
-.why{padding-bottom:0}
-.why .timeline{display:flex;justify-content:center;gap:0;margin:42px auto 0;max-width:820px;position:relative;text-align:left}
-.why .tl{flex:1;padding:22px 20px 56px;border-left:1px solid rgba(244,238,223,.18)}
-.why .tl:first-child{border-left:0}
-.why .tl b{display:block;font-family:var(--display);font-size:44px;font-weight:900;color:#F4EEDF;line-height:1}
-.why .tl p{font-size:14px;color:#C9D6D9;margin-top:8px}
-@media (max-width:640px){.why .timeline{flex-direction:column}.why .tl{border-left:0;border-top:1px solid rgba(244,238,223,.18);padding:18px 4px}.why .tl:last-child{padding-bottom:48px}}
-
-/* ---------- 2-up grid ---------- */
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media (max-width:760px){.grid{grid-template-columns:1fr}}
-.grid .tile{padding:48px 24px 44px;min-height:520px;display:flex;flex-direction:column}
-.grid .tile h3{font-size:clamp(40px,4.6vw,56px);font-weight:900;text-transform:uppercase}
-.grid .tile .sub{font-size:19px;margin-top:8px}
-.grid .tile .ctas{margin-top:18px;gap:22px}
-.stat{margin:auto 0 0;padding-top:36px}
-.stat b{display:block;font-family:var(--display);font-weight:900;font-size:clamp(88px,12vw,148px);line-height:.85;letter-spacing:-.02em;color:var(--red)}
-.stat span{display:block;font-family:var(--mono);font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:12px;max-width:300px;margin-inline:auto;line-height:1.6}
-.on-dark .stat span{color:var(--on-dark-2)}
-.on-slate .stat b{color:#FF8A6C}
-.on-slate .stat span{color:#C9D6D9}
-.plus{position:absolute;right:18px;bottom:18px;width:36px;height:36px;border-radius:50%;border:0;background:var(--ink);color:var(--ground);font-size:22px;line-height:1;cursor:pointer;display:grid;place-items:center;transition:transform .25s}
-.plus:hover{transform:scale(1.08)}
-.on-dark .plus,.on-slate .plus{background:#F4EEDF;color:#1D1C16}
-
-/* ---------- section heads ---------- */
-.shead{max-width:1024px;margin:0 auto;padding:88px 16px 28px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
-.shead h2{font-size:clamp(40px,5.4vw,64px);font-weight:900;text-transform:uppercase}
-.shead p{max-width:420px;color:var(--ink-3);font-size:17px}
-
-/* ---------- carousel ---------- */
-.rail-wrap{position:relative}
-.rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px max(16px,calc((100vw - 1024px)/2 + 16px)) 24px;scrollbar-width:none;scroll-padding-inline:max(16px,calc((100vw - 1024px)/2 + 16px))}
-.rail::-webkit-scrollbar{display:none}
-.dcard{flex:0 0 min(340px,82vw);scroll-snap-align:start;background:var(--card);border-radius:var(--r);padding:30px 28px 34px;display:flex;flex-direction:column;gap:12px;box-shadow:0 2px 12px rgba(29,28,22,.06)}
-.dcard .eyebrow{font-size:11px}
-.dcard h3{font-size:36px;font-weight:900;text-transform:uppercase;line-height:.95}
-.dcard p{color:var(--ink-2);font-size:16px}
-.paddles{max-width:1024px;margin:0 auto;padding-inline:16px;display:flex;justify-content:flex-end;gap:12px}
-.paddles button{width:38px;height:38px;border-radius:50%;border:0;background:var(--tile-2);color:var(--ink);font-size:18px;cursor:pointer;transition:opacity .2s}
-.paddles button:disabled{opacity:.35;cursor:default}
-
-/* archive cards */
-.acard{flex:0 0 min(620px,86vw);scroll-snap-align:start;aspect-ratio:16/10;max-width:100%;border-radius:var(--r);position:relative;overflow:hidden;color:#fff;display:flex;align-items:flex-end;padding:30px;background:#2a2822 center/cover no-repeat;text-decoration:none}
-.acard::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(29,28,22,.94) 0%,rgba(29,28,22,.55) 50%,rgba(29,28,22,.15) 100%)}
-.acard > div{position:relative;max-width:440px}
-.acard h3{font-size:clamp(34px,4vw,46px);font-weight:900;text-transform:uppercase}
-.acard p{font-size:15px;color:#E4DCC7;margin-top:8px}
-.acard .pill{display:inline-block;margin-top:16px;background:#fff;color:#1D1C16;font-weight:700;font-size:14px;padding:8px 16px;border-radius:980px;transition:background .2s,color .2s}
-.acard:hover .pill{background:var(--red);color:#fff}
-.a1{background-color:#3A2A22;background-image:url(assets/images/container06.jpg),radial-gradient(120% 90% at 80% 10%,#8A3A22,#2a2420 60%)}
-.a2{background-color:#22343A;background-image:url(assets/images/container01.jpg),radial-gradient(120% 90% at 80% 10%,#2D4D5C,#1D1C16 65%)}
-.a3{background-color:#3A2220;background-image:url(assets/images/container02.jpg),radial-gradient(120% 90% at 80% 10%,#DF4322,#1D1C16 60%)}
-.a4{background-color:#2E2B20;background-image:url(assets/images/container03.jpg),radial-gradient(120% 90% at 80% 10%,#8C7A4E,#1D1C16 62%)}
-
-/* ---------- toolkit ---------- */
-.kit{padding-bottom:56px}
-.kit-row{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;max-width:900px;margin:44px auto 0}
-.kit-row a{display:flex;flex-direction:column;align-items:center;gap:12px;text-decoration:none;padding:18px 6px;border-radius:16px;transition:background .2s}
-.kit-row a:hover{background:var(--card)}
-.kit-row svg{width:40px;height:40px;color:var(--red)}
-.kit-row b{font-size:15px;font-weight:700}
-.kit-row span{font-size:13px;color:var(--red-ink)}
-@media (max-width:760px){.kit-row{grid-template-columns:repeat(2,1fr)}.kit-row a:last-child{grid-column:1/-1}}
-
-/* ---------- part to play ---------- */
-.play{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-@media (max-width:860px){.play{grid-template-columns:1fr}}
-.play .tile{text-align:left;padding:36px 30px 34px;display:flex;flex-direction:column;gap:12px}
-.play h3{font-size:40px;font-weight:900;text-transform:uppercase}
-.play p{color:var(--ink-2)}
-.play .links{display:flex;flex-direction:column;gap:6px;margin-top:auto;padding-top:10px}
-
-/* ---------- contact ---------- */
-.contact{padding-bottom:56px}
-.contact .body{max-width:620px;margin:18px auto 0;color:var(--on-dark-2)}
-.mail{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:720px;margin:40px auto 0;text-align:left}
-@media (max-width:640px){.mail{grid-template-columns:1fr}}
-.mail div{background:rgba(244,238,223,.06);border:1px solid rgba(244,238,223,.12);border-radius:16px;padding:20px 22px}
-.mail b{font-family:var(--display);font-size:28px;font-weight:900;text-transform:uppercase;display:block}
-.mail p{font-size:14px;color:var(--on-dark-2);margin-top:4px}
-.mail .addr{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;font-family:var(--mono);font-size:12.5px;font-weight:600;color:#FF8A6C;word-break:break-all;user-select:all}
-.copy-btn{flex:none;border:1px solid rgba(244,238,223,.25);background:none;color:var(--on-dark);border-radius:980px;padding:4px 12px;font-size:12px;font-family:var(--body);cursor:pointer}
-
-/* ---------- footer ---------- */
-footer{background:var(--tile);margin-top:14px;padding-block:32px 24px;font-size:12px;color:var(--ink-3)}
-.foot{max-width:1024px;margin:0 auto;padding-inline:16px}
-.fine{border-bottom:1px solid var(--line);padding-bottom:18px;display:grid;gap:10px;line-height:1.55}
-.dir{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-block:22px}
-.dir h4{font-family:var(--body);font-size:12px;font-weight:700;color:var(--ink);margin-bottom:10px;letter-spacing:0}
-.dir a{display:block;text-decoration:none;color:var(--ink-3);padding:3px 0}
-.dir a:hover{color:var(--ink);text-decoration:underline}
-@media (max-width:640px){.dir{grid-template-columns:1fr 1fr}}
-.legal{border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-
-/* ---------- modal ---------- */
-dialog{border:0;padding:0;border-radius:28px;max-width:min(760px,calc(100vw - 32px));width:100%;max-height:calc(100vh - 64px);background:var(--card);color:var(--ink);box-shadow:0 40px 120px rgba(0,0,0,.4)}
-dialog::backdrop{background:rgba(16,15,12,.55);backdrop-filter:blur(8px)}
-.m-in{padding:56px 44px 44px}
-@media (max-width:640px){.m-in{padding:48px 22px 28px}}
-.m-in h3{font-size:clamp(44px,6vw,64px);font-weight:900;text-transform:uppercase;margin:10px 0 24px}
-.m-close{position:sticky;top:14px;float:right;margin:14px 14px 0 0;width:36px;height:36px;border-radius:50%;border:0;background:var(--tile-2);color:var(--ink);font-size:20px;cursor:pointer;z-index:2}
-.ev{display:flex;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
-.ev:first-of-type{border-top:0}
-.ev i{flex:none;width:8px;height:8px;border-radius:50%;background:var(--red);margin-top:9px}
-.ev p{color:var(--ink-2);font-size:16px;line-height:1.6}
-.src{font-family:var(--mono);font-size:11.5px;font-weight:800;color:var(--red-ink);text-decoration:none;border-bottom:1px solid currentColor;white-space:nowrap;margin-left:4px}
-</style>
+<link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body style="margin:0">
+<body>
+<a class="skip" href="#main">Skip to content</a>
 
-<!-- ============ GLOBAL NAV ============ -->
 <nav class="gnav" aria-label="Global">
   <div class="gnav-in">
-    <a class="mark" href="#home" aria-label="Apples Against Apartheid home">
-      <svg viewBox="0 0 18 20" aria-hidden="true"><path fill="#2F7D3B" d="M9 5.2C7 3.9 1.3 3.6 1 10.2c-.2 4.6 3 9.4 5.4 9.4 1.2 0 1.5-.6 2.6-.6s1.4.6 2.6.6c2.4 0 5.6-4.8 5.4-9.4C16.7 3.6 11 3.9 9 5.2Z"/><path fill="#E8454A" d="M9 6.6C7.3 5.5 2.6 5.3 2.4 10.3c-.2 3.9 2.5 8 4.3 8 .9 0 1.2-.5 2.3-.5s1.4.5 2.3.5c1.8 0 4.5-4.1 4.3-8C15.4 5.3 10.7 5.5 9 6.6Z"/><g fill="#1D1C16"><ellipse cx="6" cy="10.5" rx=".6" ry=".9"/><ellipse cx="9" cy="12.5" rx=".6" ry=".9"/><ellipse cx="12" cy="10.5" rx=".6" ry=".9"/><ellipse cx="7.3" cy="15" rx=".6" ry=".9"/><ellipse cx="10.7" cy="15" rx=".6" ry=".9"/></g><path fill="#2F7D3B" d="M9.3 4.6c.1-2 1.2-3.8 3.6-4.4-.1 2.3-1.4 3.9-3.6 4.4Z"/></svg>
-      AAA
-    </a>
+    <a class="mark" href="index.html" aria-label="Apples Against Apartheid home"><img src="assets/images/favicon.svg" alt="">AAA</a>
     <ul>
-      <li><a href="#why-protest-apple">Why Apple?</a></li>
-      <li><a href="#work">Blood Tech</a></li>
-      <li><a href="#receipts">Receipts</a></li>
-      <li><a href="#past-campaigns">Archive</a></li>
-      <li><a href="#apple-truths">#AppleTruths</a></li>
-      <li><a href="#get-involved">Get Involved</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="say-no-to-blood-tech.html">Say No to Blood Tech</a></li>
+      <li><a href="receipts.html">Receipts</a></li>
+      <li><a href="employees.html">Employees</a></li>
+      <li><a href="toolkit.html">Toolkit</a></li>
+      <li><a href="index.html#past-campaigns">Archive</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
     </ul>
-    <a class="pledge" href="https://actionnetwork.org/petitions/say-no-to-blood-tech/">Sign the Pledge</a>
+    <a class="nav-cta" href="say-no-to-blood-tech.html">Get Involved</a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
-      <svg viewBox="0 0 18 18"><path d="M1 6h16M1 12h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M1 6h16M1 12h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
     </button>
   </div>
   <div class="drawer" id="drawer" hidden>
-    <a href="#why-protest-apple">Why Apple?</a>
-    <a href="#work">Blood Tech</a>
-    <a href="#receipts">Receipts</a>
-    <a href="#past-campaigns">Archive</a>
-    <a href="#apple-truths">#AppleTruths</a>
-    <a href="#get-involved">Get Involved</a>
-    <a href="#contact">Contact</a>
-    <a href="https://actionnetwork.org/petitions/say-no-to-blood-tech/" style="color:var(--red-ink)">Sign the Pledge</a>
+    <a href="about.html">About</a>
+    <a href="say-no-to-blood-tech.html">Say No to Blood Tech</a>
+    <a href="receipts.html">Receipts</a>
+    <a href="employees.html">Employees</a>
+    <a href="toolkit.html">Toolkit</a>
+    <a href="index.html#past-campaigns">Archive</a>
+    <a href="index.html#contact">Contact</a>
+    <a class="hot" href="say-no-to-blood-tech.html">Get Involved</a>
   </div>
 </nav>
 
 <div class="ribbon">
   October 23 is iPhone Duo launch day. Picket your local Apple Store.
-  <a href="https://www.findaprotest.info/campaigns/say-no-to-blood-tech/submit-event">Find or host an action&nbsp;›</a>
+  <a href="say-no-to-blood-tech.html">Get involved&nbsp;›</a>
 </div>
 
-<!-- ============ LOCAL NAV ============ -->
-<div class="lnav">
-  <div class="lnav-in">
-    <span class="lnav-title">Say No to Blood Tech</span>
-    <div class="lnav-links">
-      <a href="#home">Overview</a>
-      <a href="#demands">Demands</a>
-      <a href="#receipts">Receipts</a>
-      <a href="#resources">Toolkit</a>
-      <a class="buy" href="#get-involved">Join Oct 23</a>
-    </div>
-  </div>
-</div>
+<main id="main">
 
-<main class="stack">
+<div class="stack">
 
   <!-- HERO -->
   <section class="tile hero" id="home">
@@ -318,10 +61,10 @@ dialog::backdrop{background:rgba(16,15,12,.55);backdrop-filter:blur(8px)}
       <h1>Say No to <em>Blood&nbsp;Tech.</em></h1>
       <p class="sub">Picket your local Apple Store on iPhone Duo launch day. Tell John Ternus: enough.</p>
       <div class="ctas">
-        <a class="btn fill" href="#get-involved">Get involved</a>
-        <a class="btn line" href="#demands">Read the demands</a>
+        <a class="btn fill" href="say-no-to-blood-tech.html">Get involved</a>
+        <a class="btn line" href="say-no-to-blood-tech.html#demands">Read the demands</a>
       </div>
-      <div class="count" id="count" aria-live="off">
+      <div class="count" aria-label="Time until October 23">
         <div><b id="cd-d">26</b><span>Days</span></div>
         <div><b id="cd-h">00</b><span>Hours</span></div>
         <div><b id="cd-m">00</b><span>Min</span></div>
@@ -343,54 +86,41 @@ dialog::backdrop{background:rgba(16,15,12,.55);backdrop-filter:blur(8px)}
   </div>
 
   <!-- MISSION -->
-  <section class="tile on-dark mission" id="about">
+  <section class="tile on-dark mission pad" id="about">
     <div class="copy">
-      <p class="creed">WE ARE THE CRAZY ONES. THE MISFITS. THE REBELS. THE TROUBLEMAKERS. THE ONES WHO SEE THINGS DIFFERENTLY. YOU CAN GLORIFY US, OR YOU CAN VILIFY US, BUT THE ONE THING YOU CAN'T DO IS IGNORE US — BECAUSE WE CHANGE THINGS…</p>
+      <p class="creed">WE ARE THE CRAZY ONES — THE MISFITS, THE REBELS, THE TROUBLEMAKERS, THE ONES WHO SEE THINGS DIFFERENTLY. YOU CAN GLORIFY US, OR YOU CAN VILIFY US, BUT THE ONE THING YOU CAN'T DO IS IGNORE US …<span>BECAUSE WE CHANGE THINGS.</span></p>
       <h2>We Are <em>Apples Against Apartheid.</em></h2>
       <p class="sub">A collective of current and former Apple employees bringing attention to Apple's complicity in Israel's apartheid system.</p>
       <div class="body">
-        <p>We create campaigns designed to bring attention to Apple's anti-Palestinian racism and Islamophobia. We also work with <a href="https://friendsofthecongo.org">Friends of Congo</a> and other Congolese activists to expose how abusive and opaque mineral supply chains harm Congolese communities — and to demand transparency, accountability, and responsible sourcing that benefits Congo's people.</p>
+        <p>We create campaigns designed to bring attention to Apple's anti-Palestinian racism and Islamophobia. We also work with <a href="https://friendsofthecongo.org/">Friends of Congo</a>, <a href="https://www.teamcongordc.com/">Team Congo</a>, and other Congolese activists to expose how abusive and opaque mineral supply chains harm Congolese communities — and to demand transparency, accountability, and responsible sourcing that benefits Congo's people.</p>
       </div>
       <div class="ctas">
-        <a class="link" href="#why-protest-apple">Why protest Apple ›</a>
-        <a class="link" href="#contact">Join the collective ›</a>
+        <a class="link" href="about.html">About us ›</a>
+        <a class="link" href="employees.html#join">Join the collective ›</a>
       </div>
     </div>
   </section>
 
   <!-- WHY -->
-  <section class="tile on-slate why" id="why-protest-apple">
+  <section class="tile on-slate" id="why-protest-apple">
     <div class="copy">
       <p class="eyebrow">The Record</p>
       <h2>Why Protest Apple?</h2>
       <p class="sub">For decades Apple sold itself as the rebel. The ones crazy enough to change the world. The record says otherwise.</p>
       <div class="ctas">
-        <a class="btn fill" href="#receipts">See the receipts</a>
-        <a class="btn line" style="color:#F4EEDF;border-color:#F4EEDF" href="#work">The campaign</a>
+        <a class="btn fill" href="receipts.html">See the receipts</a>
+        <a class="btn line" href="say-no-to-blood-tech.html">Get involved</a>
       </div>
     </div>
     <div class="timeline copy">
-      <div class="tl"><b>1984</b><p>A <a href="https://www.youtube.com/watch?v=ErwS24cBZPc" style="color:#fff">Super Bowl ad</a> casts Apple as the fighter against Big Brother.</p></div>
-      <div class="tl"><b>1997</b><p><a href="https://www.youtube.com/watch?v=CLIyH2SyxZA" style="color:#fff">“Think different”</a> claims the misfits and the rebels.</p></div>
+      <div class="tl"><b>1984</b><p>A <a href="https://www.youtube.com/watch?v=ErwS24cBZPc">Super Bowl ad</a> casts Apple as the fighter against Big Brother.</p></div>
+      <div class="tl"><b>1997</b><p><a href="https://www.youtube.com/watch?v=CLIyH2SyxZA">“Think different”</a> claims the misfits and the rebels.</p></div>
       <div class="tl"><b>Today</b><p>Employees fired for standing with Palestine. Arab and Muslim workers ignored. Cozy with Trump.</p></div>
     </div>
   </section>
+</div>
 
-  <!-- CAMPAIGN -->
-  <section class="tile" id="work" style="padding-bottom:56px">
-    <div class="copy">
-      <p class="eyebrow">Current Campaign</p>
-      <h2>Show up.<br>Fight back.</h2>
-      <p class="sub">For Congo <em style="font-style:normal;color:var(--red)">and</em> Palestine.</p>
-      <div class="body" style="max-width:620px;margin:22px auto 0;text-align:left;display:grid;gap:14px;color:var(--ink-2)">
-        <p>Since 2012, Apple has embraced Netanyahu's apartheid state — ignoring human rights violations recognized by Human Rights Watch and Amnesty International, even after the genocidal attacks on Gaza began. It has ignored the Congolese communities most affected by the demand for its products.</p>
-        <p>Employees who support Palestine have been reprimanded, suspended, and fired. On October 23, launch day for iPhone Duo, we call on communities everywhere to picket their local Apple Store. We'll provide the flyers. Just show up.</p>
-      </div>
-    </div>
-  </section>
-</main>
-
-<!-- DEMANDS CAROUSEL -->
+<!-- DEMANDS -->
 <section id="demands">
   <div class="shead">
     <h2>Our Demands.</h2>
@@ -402,10 +132,10 @@ dialog::backdrop{background:rgba(16,15,12,.55);backdrop-filter:blur(8px)}
     <article class="dcard"><p class="eyebrow">Demand 03</p><h3>Get Out of the Occupation</h3><p>Apple lists offices in occupied Jerusalem as being in Israel, against international law. Close them, and stop including organizations that fund and arm illegal settlements on the Benevity platform.</p></article>
     <article class="dcard"><p class="eyebrow">Demand 04</p><h3>Clean the Supply Chain, Don't Abandon Congo</h3><p>Keep minerals controlled, taxed, or trafficked by armed groups out of the supply chain. Publish mineral origins, processors and smelters, remediate harms, and support responsible sourcing from legitimate Congolese producers.</p></article>
   </div>
-  <div class="paddles" data-rail="rail-d"><button aria-label="Previous">‹</button><button aria-label="Next">›</button></div>
+  <div class="paddles" data-rail="rail-d"><button aria-label="Previous demand">‹</button><button aria-label="Next demand">›</button></div>
 </section>
 
-<!-- RECEIPTS GRID -->
+<!-- RECEIPTS -->
 <section id="receipts">
   <div class="shead">
     <h2>The Receipts.</h2>
@@ -417,32 +147,32 @@ dialog::backdrop{background:rgba(16,15,12,.55);backdrop-filter:blur(8px)}
         <p class="eyebrow">Receipts 01</p>
         <h3>Zionism</h3>
         <p class="sub">Acquisitions, IDF pay, and matched donations.</p>
-        <div class="ctas"><button class="link" style="background:none;border:0;cursor:pointer;font-family:inherit" data-open="m-zion">Read the receipts ›</button></div>
+        <div class="ctas"><a class="link" href="receipts.html#zionism">Read the receipts ›</a></div>
         <div class="stat"><b>$34.5M</b><span>Reported employee donations matched to Friends of the IDF and settlement-linked groups</span></div>
-        <button class="plus" data-open="m-zion" aria-label="More about Zionism receipts">+</button>
+        <button class="plus" data-open="m-zion" aria-label="Preview Zionism receipts">+</button>
       </article>
       <article class="tile">
         <p class="eyebrow">Receipts 02</p>
         <h3>Supply Chain</h3>
         <p class="sub">Conflict minerals and a pending lawsuit.</p>
-        <div class="ctas"><button class="link" style="background:none;border:0;cursor:pointer;font-family:inherit" data-open="m-supply">Read the receipts ›</button></div>
+        <div class="ctas"><a class="link" href="receipts.html#supply-chain">Read the receipts ›</a></div>
         <div class="stat"><b>5 of 7</b><span>of Rwanda's largest coltan exporters bought conflict coltan from Rubaya, per Global Witness</span></div>
-        <button class="plus" data-open="m-supply" aria-label="More about supply chain receipts">+</button>
+        <button class="plus" data-open="m-supply" aria-label="Preview supply chain receipts">+</button>
       </article>
       <article class="tile">
         <p class="eyebrow">Receipts 03</p>
         <h3>Bootlicking</h3>
         <p class="sub">A ballroom donation and a golden plaque.</p>
-        <div class="ctas"><button class="link" style="background:none;border:0;cursor:pointer;font-family:inherit" data-open="m-boot">Read the receipts ›</button></div>
+        <div class="ctas"><a class="link" href="receipts.html#bootlicking">Read the receipts ›</a></div>
         <div class="stat"><b>24K</b><span>Gold base under the glass plaque Tim Cook gave Trump, August 2025</span></div>
-        <button class="plus" data-open="m-boot" aria-label="More about bootlicking receipts">+</button>
+        <button class="plus" data-open="m-boot" aria-label="Preview bootlicking receipts">+</button>
       </article>
       <article class="tile on-slate" id="apple-truths">
         <p class="eyebrow">In Their Own Words</p>
         <h3>#AppleTruths</h3>
         <p class="sub">Employees worldwide — especially in retail — report racism, Islamophobia, and harassment for supporting Palestine.</p>
-        <div class="ctas"><a class="link" style="color:#FF9A7E" href="#contact">Share your story ›</a></div>
-        <div class="stat"><b>Not one case.</b><span>A repeated pattern of systemic racism</span></div>
+        <div class="ctas"><a class="link" href="employees.html">Read their stories ›</a></div>
+        <div class="stat"><b class="q">Do you work for Apple?</b><span>We know it's hard to speak up</span><a class="link" href="employees.html#join">Let us help ›</a></div>
       </article>
     </div>
   </div>
@@ -455,32 +185,32 @@ dialog::backdrop{background:rgba(16,15,12,.55);backdrop-filter:blur(8px)}
     <p>Past campaigns from the collective and our allies.</p>
   </div>
   <div class="rail" id="rail-a">
-    <a class="acard a1" href="http://codepink.org/apple"><div><p class="eyebrow" style="color:#FF9A7E">With Code Pink</p><h3>Cook Is Cooked</h3><p>Since Trump's election, Tim Cook has gone out of his way to capitulate to fascism. The petition demands Cook step down and Apple acknowledge the genocides in Congo and Palestine.</p><span class="pill">Check it out ↗</span></div></a>
-    <a class="acard a2" href="http://apples4ceasefire.com/"><div><p class="eyebrow" style="color:#FF9A7E">Open letter</p><h3>Apples4Ceasefire</h3><p>400+ current and former employees asked executives to address Palestinian suffering the way Tim Cook addressed Israeli suffering on October 9.</p><span class="pill">Check it out ↗</span></div></a>
-    <a class="acard a3" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDY3NTY4MzY1NTI3MTA1"><div><p class="eyebrow" style="color:#FF9A7E">iPhone 16 launch</p><h3>Apple Accountability Day</h3><p>Rallies all over the world during the iPhone 16 keynote and launch, calling out Apple's silence on Palestine and Congo.</p><span class="pill">View protests ↗</span></div></a>
-    <a class="acard a4" href="https://openletter.earth/apple-must-end-direct-complicity-in-apartheid-and-genocide-a1c37c20"><div><p class="eyebrow" style="color:#FF9A7E">Open to the public</p><h3>Public Open Letter</h3><p>Because Apple refused to listen to its own employees, we published a second letter for anyone to sign in support of Palestine.</p><span class="pill">Sign the letter ↗</span></div></a>
+    <a class="acard a1" href="http://codepink.org/apple"><div><p class="eyebrow">With Code Pink</p><h3>Cook Is Cooked</h3><p>Since Trump's election, Tim Cook has gone out of his way to capitulate to fascism. The petition demands Cook step down and Apple acknowledge the genocides in Congo and Palestine.</p><span class="pill">Check it out ↗</span></div></a>
+    <a class="acard a2" href="http://apples4ceasefire.com/"><div><p class="eyebrow">Open letter</p><h3>Apples4Ceasefire</h3><p>400+ current and former employees asked executives to address Palestinian suffering the way Tim Cook addressed Israeli suffering on October 9.</p><span class="pill">Check it out ↗</span></div></a>
+    <a class="acard a3" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDY3NTY4MzY1NTI3MTA1"><div><p class="eyebrow">iPhone 16 launch</p><h3>Apple Accountability Day</h3><p>Rallies all over the world during the iPhone 16 keynote and launch, calling out Apple's silence on Palestine and Congo.</p><span class="pill">View protests ↗</span></div></a>
+    <a class="acard a4" href="https://openletter.earth/apple-must-end-direct-complicity-in-apartheid-and-genocide-a1c37c20"><div><p class="eyebrow">Open to the public</p><h3>Public Open Letter</h3><p>Because Apple refused to listen to its own employees, we published a second letter for anyone to sign in support of Palestine.</p><span class="pill">Sign the letter ↗</span></div></a>
   </div>
-  <div class="paddles" data-rail="rail-a"><button aria-label="Previous">‹</button><button aria-label="Next">›</button></div>
+  <div class="paddles" data-rail="rail-a"><button aria-label="Previous campaign">‹</button><button aria-label="Next campaign">›</button></div>
 </section>
 
 <div class="stack" style="margin-top:72px">
-  <!-- TOOLKIT -->
+  <!-- PICK PRINT PICKET -->
   <section class="tile kit" id="get-involved">
     <div class="copy">
-      <p class="eyebrow">Take Action</p>
+      <p class="eyebrow">Get ready for October 23</p>
       <h2>Pick. Print.<br>Picket.</h2>
-      <p class="sub">Show up with some friends at your local Apple Store, wave signs, and pass out flyers. We've got everything else covered.</p>
+      <p class="sub">Advocating for Palestine and Congo is easier than you think. All you have to do is pick your flyers &amp; posters, print them out, and picket your local store.</p>
       <div class="ctas">
-        <a class="btn fill" href="https://www.findaprotest.info/campaigns/say-no-to-blood-tech/submit-event">Find or host an action</a>
-        <a class="btn line" href="#contact">Email the organizers</a>
+        <a class="btn fill" href="toolkit.html">Open the toolkit</a>
+        <a class="btn line" href="say-no-to-blood-tech.html#find-an-action">Find an action</a>
       </div>
     </div>
     <div class="kit-row" id="resources">
-      <a href="https://canva.link/hi99eex0cbcpvzq"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="8" y="5" width="24" height="30" rx="2"/><path d="M13 13h14M13 18h14M13 23h9"/></svg><b>Flyers</b><span>Canva ›</span></a>
-      <a href="https://cryptpad.fr/pad/#/2/pad/view/BLara9tioDq1FEy+E1sk-TCwH8Qwi1cI6DP96hn2zGA/"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 16v8h6l10 7V9L13 16H7Z"/><path d="M28 14c2 1.5 3 3.6 3 6s-1 4.5-3 6"/></svg><b>Chants</b><span>Printable ›</span></a>
-      <a href="https://canva.link/sncfgvydd9knzwj"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="6" width="26" height="18" rx="2"/><path d="M20 24v11M15 35h10"/></svg><b>Posters</b><span>Canva ›</span></a>
-      <a href="https://canva.link/20kokbakt8ja9vd"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="7" width="26" height="26" rx="8"/><circle cx="20" cy="20" r="6"/><circle cx="28" cy="12" r="1" fill="currentColor"/></svg><b>Instagram</b><span>Templates ›</span></a>
-      <a href="https://www.aclu.org/know-your-rights/protesters-rights"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 5 8 10v9c0 8 5 13 12 16 7-3 12-8 12-16v-9L20 5Z"/><path d="m15 20 4 4 7-8"/></svg><b>Know your rights</b><span>ACLU guide ›</span></a>
+      <a href="toolkit.html#flyers"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="8" y="5" width="24" height="30" rx="2"/><path d="M13 13h14M13 18h14M13 23h9"/></svg><b>Flyers</b><span>Get ›</span></a>
+      <a href="toolkit.html#chants"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 16v8h6l10 7V9L13 16H7Z"/><path d="M28 14c2 1.5 3 3.6 3 6s-1 4.5-3 6"/></svg><b>Chants</b><span>Get ›</span></a>
+      <a href="toolkit.html#posters"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="7" y="6" width="26" height="18" rx="2"/><path d="M20 24v11M15 35h10"/></svg><b>Posters</b><span>Get ›</span></a>
+      <a href="toolkit.html#instagram"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="7" y="7" width="26" height="26" rx="8"/><circle cx="20" cy="20" r="6"/><circle cx="28" cy="12" r="1" fill="currentColor"/></svg><b>Instagram</b><span>Get ›</span></a>
+      <a href="toolkit.html#know-your-rights"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 5 8 10v9c0 8 5 13 12 16 7-3 12-8 12-16v-9L20 5Z"/><path d="m15 20 4 4 7-8"/></svg><b>Know your rights</b><span>Read ›</span></a>
     </div>
   </section>
 
@@ -490,25 +220,60 @@ dialog::backdrop{background:rgba(16,15,12,.55);backdrop-filter:blur(8px)}
     <div class="play">
       <article class="tile"><p class="eyebrow">Commit</p><h3>Sign the Pledge</h3><p>Pledge not to buy any new Apple products until Apple distances itself from Israel.</p><div class="links"><a class="link" href="https://actionnetwork.org/petitions/say-no-to-blood-tech/">Sign the pledge ›</a></div></article>
       <article class="tile"><p class="eyebrow">Give</p><h3>Donate</h3><p>Support the people doing the work on the ground.</p><div class="links"><a class="link" href="https://friendsofthecongo.org/">Friends of Congo ›</a><a class="link" href="https://www.teamcongordc.com/">Team Congo ›</a><a class="link" href="https://www.pcrf.net/">Palestine Children's Relief Fund ›</a></div></article>
-      <article class="tile"><p class="eyebrow">Organize</p><h3>Organize Locally</h3><p>Get your friends together at your local Apple Store. Everything you need to start is in the toolkit.</p><div class="links"><a class="link" href="#resources">Open the toolkit ›</a></div></article>
+      <article class="tile"><p class="eyebrow">Organize</p><h3>Organize Locally</h3><p>Get your friends together at your local Apple Store. Everything you need to start is in the toolkit.</p><div class="links"><a class="link" href="toolkit.html">Open the toolkit ›</a></div></article>
     </div>
   </div>
 
   <!-- CONTACT -->
   <section class="tile on-dark contact" id="contact">
     <div class="copy">
-      <p class="eyebrow" style="color:#FF7A5C">Join the Collective</p>
+      <p class="eyebrow">Join the Collective</p>
       <h2>Current or former employee?</h2>
       <p class="sub">How else do things change?</p>
-      <p class="body">We know how hard it is to speak up. Whether you want to organize with us — anonymously is possible — or share a story for our testimonies, reach out.</p>
+      <div class="body">
+        <p>We understand how difficult it can be to speak up. But we're crazy enough to believe that we can change the world, and we don't have to accept the evil that is so prominent in it.</p>
+        <p>Whether you want to get involved with our organizing (anonymously is possible), or you have a story you want to share for our testimonies, use the secure form.</p>
+      </div>
       <div class="ctas"><a class="btn fill" href="https://cryptpad.fr/form/#/2/form/view/alCqQlYvJW280ihcsGPOE0Eogj68Tz0vJ1k8+vgziQk/">Use the secure form</a></div>
     </div>
     <div class="mail">
-      <div><b>Community</b><p>For organizers and community members looking to get involved.</p><div class="addr"><span>contact@applesagainstapartheid.com</span><button class="copy-btn" data-copy="contact@applesagainstapartheid.com">Copy</button></div></div>
-      <div><b>Press</b><p>For members of the press.</p><div class="addr"><span>press@applesagainstapartheid.com</span><button class="copy-btn" data-copy="press@applesagainstapartheid.com">Copy</button></div></div>
+      <div><b>Community</b><p>For organizers and community members looking to get involved.</p><div class="addr"><a href="mailto:contact@applesagainstapartheid.com">contact@applesagainstapartheid.com</a><button class="copy-btn" data-copy="contact@applesagainstapartheid.com">Copy</button></div></div>
+      <div><b>Press</b><p>For members of the press.</p><div class="addr"><a href="mailto:press@applesagainstapartheid.com">press@applesagainstapartheid.com</a><button class="copy-btn" data-copy="press@applesagainstapartheid.com">Copy</button></div></div>
     </div>
   </section>
 </div>
+
+<!-- RECEIPT PREVIEWS -->
+<dialog id="m-zion" aria-labelledby="mz-h">
+  <button class="m-close" aria-label="Close">×</button>
+  <div class="m-in">
+    <p class="eyebrow">Receipts 01 · Preview</p><h3 id="mz-h">Zionism</h3>
+    <div class="ev"><i></i><p>In January 2026 Apple acquired Israeli AI startup Q.ai for roughly $1.6–2 billion — its second-largest acquisition ever, after Beats. <a class="src" href="https://techcrunch.com/2026/01/29/apple-buys-israeli-startup-q-ai-as-the-ai-race-heats-up">Source ↗</a></p></div>
+    <div class="ev"><i></i><p>According to Apple's own internal HR site, workers who serve in the IDF are paid 100% of their base salary, with IDF spouses offered an extra 8 days off since 2024.</p></div>
+    <div class="ev"><i></i><p>Apple's Benevity donation-matching program has matched employee contributions — reported at $34.5 million — to Friends of the IDF and West Bank settlement-linked groups. <a class="src" href="https://theintercept.com/2024/06/11/apple-donations-idf-israel-gaza-illegal-settlements/">Source ↗</a></p></div>
+    <div class="m-more"><span>3 of 5 receipts</span><a class="btn fill" href="receipts.html#zionism">See all Zionism receipts</a></div>
+  </div>
+</dialog>
+<dialog id="m-supply" aria-labelledby="ms-h">
+  <button class="m-close" aria-label="Close">×</button>
+  <div class="m-in">
+    <p class="eyebrow">Receipts 02 · Preview</p><h3 id="ms-h">Supply Chain</h3>
+    <div class="ev"><i></i><p>Apple disclosed that in June 2024 it directed suppliers to stop sourcing tin, tantalum, tungsten, and gold from the DRC and Rwanda. In November 2025, International Rights Advocates filed a lawsuit challenging Apple's responsible-sourcing claims; it remains pending, and Apple disputes it. <a class="src" href="https://www.internationalrightsadvocates.org/cases/international-rights-advocates-v-apple-inc">Source ↗</a></p></div>
+    <div class="ev"><i></i><p>A 2026 Global Witness investigation found at least five of Rwanda's seven largest coltan exporters bought conflict coltan from the Rubaya mines in eastern Congo. <a class="src" href="https://globalwitness.org/en/campaigns/transition-minerals/who-buys-rwandas-smuggled-coltan-the-global-journey-of-conflict-coltan-from-drc-to-the-worlds-electronics/">Source ↗</a></p></div>
+    <div class="m-more"><span>2 of 2 receipts, with full context</span><a class="btn fill" href="receipts.html#supply-chain">See all Supply Chain receipts</a></div>
+  </div>
+</dialog>
+<dialog id="m-boot" aria-labelledby="mb-h">
+  <button class="m-close" aria-label="Close">×</button>
+  <div class="m-in">
+    <p class="eyebrow">Receipts 03 · Preview</p><h3 id="mb-h">Bootlicking</h3>
+    <div class="ev"><i></i><p>Apple is one of the corporate donors funding Trump's $300 million White House ballroom project. <a class="src" href="https://www.washingtonpost.com/politics/2025/08/07/trump-tim-cook-gift-white-house-apple/">Source ↗</a></p></div>
+    <div class="ev"><i></i><p>In August 2025, Tim Cook gave Trump a custom glass plaque on a 24-karat gold base during an Oval Office event announcing a $100 billion Apple investment. <a class="src" href="https://fortune.com/2025/08/07/apple-trump-tim-cook-100-billion-manufacturing-gift-plaque-gold">Source ↗</a></p></div>
+    <div class="m-more"><span>2 of 2 receipts, with full context</span><a class="btn fill" href="receipts.html#bootlicking">See all Bootlicking receipts</a></div>
+  </div>
+</dialog>
+
+</main>
 
 <footer>
   <div class="foot">
@@ -517,98 +282,16 @@ dialog::backdrop{background:rgba(16,15,12,.55);backdrop-filter:blur(8px)}
       <p>Supply-chain claims: the International Rights Advocates lawsuit remains pending; its allegations have not been adjudicated, and Apple disputes them. The Global Witness findings show a serious supply-chain risk but do not prove that a particular Apple product contains Rubaya coltan.</p>
     </div>
     <div class="dir">
-      <div><h4>Campaign</h4><a href="#work">Say No to Blood Tech</a><a href="#demands">Demands</a><a href="#receipts">Receipts</a></div>
-      <div><h4>Take Action</h4><a href="#get-involved">Get Involved</a><a href="#resources">Toolkit</a><a href="https://actionnetwork.org/petitions/say-no-to-blood-tech/">Sign the Pledge</a></div>
-      <div><h4>About</h4><a href="#about">Who We Are</a><a href="#past-campaigns">Past Campaigns</a><a href="#apple-truths">#AppleTruths</a></div>
+      <div><h4>Campaign</h4><a href="say-no-to-blood-tech.html">Say No to Blood Tech</a><a href="say-no-to-blood-tech.html#demands">Demands</a><a href="say-no-to-blood-tech.html#find-an-action">Find an Action</a><a href="toolkit.html">Toolkit</a></div>
+      <div><h4>Receipts</h4><a href="receipts.html#zionism">Zionism</a><a href="receipts.html#supply-chain">Supply Chain</a><a href="receipts.html#bootlicking">Bootlicking</a></div>
+      <div><h4>Employees</h4><a href="employees.html">#AppleTruths</a><a href="employees.html#join">Join the Collective</a><a href="https://cryptpad.fr/form/#/2/form/view/alCqQlYvJW280ihcsGPOE0Eogj68Tz0vJ1k8+vgziQk/">Share Your Story</a></div>
+      <div><h4>About</h4><a href="about.html">About Us</a><a href="index.html#past-campaigns">Past Campaigns</a><a href="index.html#contact">Contact</a></div>
       <div><h4>Allies</h4><a href="https://friendsofthecongo.org/">Friends of Congo</a><a href="https://www.teamcongordc.com/">Team Congo</a><a href="https://www.pcrf.net/">PCRF</a></div>
     </div>
     <div class="legal"><span>© Apples Against Apartheid</span><span>Free Palestine · Free Congo</span></div>
   </div>
 </footer>
 
-<!-- ============ MODALS ============ -->
-<dialog id="m-zion" aria-labelledby="mz-h">
-  <button class="m-close" aria-label="Close">×</button>
-  <div class="m-in">
-    <p class="eyebrow">Receipts 01</p><h3 id="mz-h">Zionism</h3>
-    <div class="ev"><i></i><p>Apple is no stranger to buying Israeli tech companies, many started by former Unit 8200 soldiers. In January 2026 it acquired Israeli AI startup Q.ai for roughly $1.6–2 billion — its second-largest acquisition ever, after Beats. <a class="src" href="https://techcrunch.com/2026/01/29/apple-buys-israeli-startup-q-ai-as-the-ai-race-heats-up">Source ↗</a></p></div>
-    <div class="ev"><i></i><p>According to Apple's own internal HR site, workers who serve in the IDF are paid 100% of their base salary, with IDF spouses offered an extra 8 days off since 2024.</p></div>
-    <div class="ev"><i></i><p>In April 2025, Apple SVP of Hardware Technologies Johny Srouji led a senior executive delegation to Apple's R&amp;D centers in Herzliya, Haifa, and Jerusalem. <a class="src" href="https://en.globes.co.il/en/article-apple-svp-leads-senior-delegation-of-execs-to-israel-1001507764">Source ↗</a></p></div>
-    <div class="ev"><i></i><p>Apple's Benevity donation-matching program has matched employee contributions — reported at $34.5 million — to Friends of the IDF and West Bank settlement-linked groups. <a class="src" href="https://theintercept.com/2024/06/11/apple-donations-idf-israel-gaza-illegal-settlements/">Source ↗</a></p></div>
-    <div class="ev"><i></i><p>Employees allege Apple lists its Jerusalem offices as being in Israel rather than occupied territory — despite the ICJ's July 2024 ruling that the occupation is unlawful. <a class="src" href="https://www.aljazeera.com/news/2024/7/19/world-court-says-israels-settlement-policies-breach-international-law">Source ↗</a></p></div>
-  </div>
-</dialog>
-<dialog id="m-supply" aria-labelledby="ms-h">
-  <button class="m-close" aria-label="Close">×</button>
-  <div class="m-in">
-    <p class="eyebrow">Receipts 02</p><h3 id="ms-h">Supply Chain</h3>
-    <div class="ev"><i></i><p>Apple disclosed that in June 2024 it directed suppliers to stop sourcing tin, tantalum, tungsten, and gold directly or indirectly from the DRC and Rwanda, citing escalating conflict, smuggling, and illegal taxation. In November 2025, International Rights Advocates filed a District of Columbia consumer-protection lawsuit challenging Apple's responsible-sourcing claims. The lawsuit remains pending; its allegations have not been adjudicated, and Apple disputes them. <a class="src" href="https://www.sec.gov/Archives/edgar/data/320193/000114036125012359/ef20046400_ex1-01.htm">Source 1 ↗</a> <a class="src" href="https://www.internationalrightsadvocates.org/cases/international-rights-advocates-v-apple-inc">Source 2 ↗</a></p></div>
-    <div class="ev"><i></i><p>A 2026 Global Witness investigation found that at least five of Rwanda's seven largest coltan exporters had bought conflict coltan from the Rubaya mines in eastern Congo, and identified pathways through traders and smelters by which that material may reach global technology supply chains, including Apple's. This shows a serious supply-chain risk, but does not prove that a particular Apple product contains Rubaya coltan. <a class="src" href="https://globalwitness.org/en/campaigns/transition-minerals/who-buys-rwandas-smuggled-coltan-the-global-journey-of-conflict-coltan-from-drc-to-the-worlds-electronics/">Source ↗</a></p></div>
-  </div>
-</dialog>
-<dialog id="m-boot" aria-labelledby="mb-h">
-  <button class="m-close" aria-label="Close">×</button>
-  <div class="m-in">
-    <p class="eyebrow">Receipts 03</p><h3 id="mb-h">Bootlicking</h3>
-    <div class="ev"><i></i><p>Apple is one of the corporate donors funding Trump's $300 million White House ballroom project, alongside Amazon, Google, Meta, and Microsoft. <a class="src" href="https://www.washingtonpost.com/politics/2025/08/07/trump-tim-cook-gift-white-house-apple/">Source ↗</a></p></div>
-    <div class="ev"><i></i><p>In August 2025, Tim Cook gave Trump a custom glass plaque mounted on a 24-karat gold base during an Oval Office event announcing a $100 billion Apple investment in the U.S. — widely read as an effort to secure tariff exemptions. <a class="src" href="https://fortune.com/2025/08/07/apple-trump-tim-cook-100-billion-manufacturing-gift-plaque-gold">Source ↗</a></p></div>
-  </div>
-</dialog>
-
-<script>
-(() => {
-  // mobile menu
-  const btn = document.getElementById('menuBtn'), drawer = document.getElementById('drawer');
-  btn.addEventListener('click', () => {
-    const open = drawer.hidden;
-    drawer.hidden = !open;
-    btn.setAttribute('aria-expanded', String(open));
-  });
-  drawer.addEventListener('click', e => { if (e.target.tagName === 'A') { drawer.hidden = true; btn.setAttribute('aria-expanded','false'); } });
-
-  // countdown to Oct 23 launch day (local time)
-  const target = new Date(2026, 9, 23, 9, 0, 0);
-  const pad = n => String(n).padStart(2, '0');
-  function tick(){
-    let s = Math.max(0, (target - new Date()) / 1000);
-    const d = Math.floor(s / 86400); s -= d * 86400;
-    const h = Math.floor(s / 3600); s -= h * 3600;
-    const m = Math.floor(s / 60);
-    document.getElementById('cd-d').textContent = d;
-    document.getElementById('cd-h').textContent = pad(h);
-    document.getElementById('cd-m').textContent = pad(m);
-  }
-  tick(); setInterval(tick, 20000);
-
-  // carousels
-  document.querySelectorAll('.paddles').forEach(p => {
-    const rail = document.getElementById(p.dataset.rail);
-    const [prev, next] = p.querySelectorAll('button');
-    const step = () => rail.firstElementChild.getBoundingClientRect().width + 18;
-    prev.onclick = () => rail.scrollBy({ left: -step(), behavior: 'smooth' });
-    next.onclick = () => rail.scrollBy({ left: step(), behavior: 'smooth' });
-    const sync = () => {
-      prev.disabled = rail.scrollLeft < 4;
-      next.disabled = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4;
-    };
-    rail.addEventListener('scroll', sync, { passive: true });
-    window.addEventListener('resize', sync); sync();
-  });
-
-  // modals
-  document.querySelectorAll('[data-open]').forEach(b => b.addEventListener('click', () => document.getElementById(b.dataset.open).showModal()));
-  document.querySelectorAll('dialog').forEach(d => {
-    d.querySelector('.m-close').onclick = () => d.close();
-    d.addEventListener('click', e => { if (e.target === d) d.close(); });
-  });
-
-  // copy email
-  document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = 'Copied'; }
-    catch { const r = document.createRange(); r.selectNodeContents(b.previousElementSibling); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected'; }
-    setTimeout(() => b.textContent = 'Copy', 1800);
-  }));
-})();
-</script>
+<script src="assets/js/site.js"></script>
 </body>
 </html>
